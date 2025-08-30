@@ -1,3 +1,7 @@
+This was designed to be run with it's own stand alone python installation.  Git has file limits that is making it difficult to achieve this.  Python will have to be installed separately and will need the llama-cpp-python and pygame_ce libraries.
+
+Put the Python folder in the root directory of the game, and use the launch.bat file to launch the game.
+
 In it's final iteration this application will be designed to interface with ChatGPT's API to power the AI aspect of this game.  However, there will be a stand alone feature implemented as well.  So the user will have the power to decide which approach suits them best, since ChatGPT's API can get quite expensive.
 
 Here is a link to a simple llama-2 model that can run on most people's systems:
