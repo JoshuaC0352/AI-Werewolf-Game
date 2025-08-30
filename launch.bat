@@ -1,0 +1,1 @@
+Python\python.exe inquisitor_init.py
