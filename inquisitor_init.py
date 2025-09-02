@@ -74,21 +74,10 @@ def accuse_player(accused_player):
 
 
 class Game:
-    screen = None
     
-    villager_images = []
-    active_vilagers = []
-    start_positions = []
-
     screen_width = 1920
     screen_height = 1080
 
-    all_scenes = []
-
-    selected_villager = None #Pointer to villager selected for interrogation
-
-    active_scene = None
-    next_scene = None
         
     #Get the resolution of the screen app is launching from
     def set_resolution(self):
@@ -105,6 +94,15 @@ class Game:
             print("ERROR: Failed to detect screen resolution, using default 1920x1080")
     
     def __init__(self, all_scenes):
+
+        self.villager_images = []
+        self.active_vilagers = []
+        self.start_positions = []
+        self.all_scenes = []
+        self.selected_villager = None
+        self.active_scene = None
+        self.next_scene = None
+        
 
         self.all_scenes = all_scenes
 

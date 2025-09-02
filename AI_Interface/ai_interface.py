@@ -1,24 +1,26 @@
 from llama_cpp.llama import Llama
 from openai import OpenAI
+import globals
 
-local_model = None
 
 API_KEY = ""
 def load_local_model():
     modelInput = "Tell me a story about a goat."
     
     #Load the model
-    local_model = Llama(model_path="./Model/llama-2-7b.Q8_0.gguf",
+    globals.LOCAL_LLM = Llama(model_path="./Model/llama-2-7b.Q8_0.gguf",
                 n_gpu_layers=-1,
                 main_gpu=1)
 
-    output = local_model(
-        modelInput,
-        max_tokens=0,
-        echo=False,
-        model="QWQ",
-        stream=True,
-    )
+    modelInput = "Hello"
+
+    # output = LOCAL_LLM(
+    #     modelInput,
+    #     max_tokens=0,
+    #     echo=False,
+    #     model="QWQ",
+    #     stream=True,
+    # )
     
     #print(output['choices'])
 
@@ -29,9 +31,9 @@ def load_local_model():
     # streamToConsole = True
     
     # print("==============================")
-    # for line in output:
+    #for line in output:
     #     if streamToConsole:
-    #         print(line['choices'][0]['text'], end="")
+    #    print(line['choices'][0]['text'], end="")
     #         #print(line)
     #         #print(line, end="")
     #     if writeToFile:
@@ -39,6 +41,25 @@ def load_local_model():
     #         #reportFile.write(output)
     #     #print(line)
     # print("\n==============================")
+
+def query_local_model(model_query : str):
+    
+    print("querying model")
+
+    output = globals.LOCAL_LLM(
+        model_query,
+        max_tokens=0,
+        echo=False,
+        model="llama2",
+        stream=True,
+    )
+
+    return_string = ""
+
+    for line in output:
+        return_string += line['choices'][0]['text']
+    
+    return return_string
 
 
 def load_chatGPT():

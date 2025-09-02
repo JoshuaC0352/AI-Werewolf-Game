@@ -13,6 +13,7 @@ GRAY_1 = (50,50,50)
 GRAY_2 = (180, 180, 180)
 BURGENDY = (120,50,75)
 
+LOCAL_LLM = None
 
 """
     This function will create a list of unique int in the provided range.

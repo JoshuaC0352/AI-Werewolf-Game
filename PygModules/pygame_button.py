@@ -5,23 +5,11 @@ from inquisitor_init import Game
 
 class PygameButton:
     
-    position = [] #Position 0 is x axis, position 1 is y axis
-    width = None
-    height = None
-    font = None #Color of the button's font
-    button_text = None
-    button_dimensions = None
-    button_color = None #Default color of button
-    background_color = None #Color that will display when mousing over button
-    pyg_text = None
-    call_action = None
-    call_arguments = None
-    temp_enable = True
-    GameObject = None
 
     def __init__(self, position=[0,0], width=0, height=0, font=0, button_text="", button_color=(0,0,0), font_color=(0,0,0), 
                  background_color=(0,0,0), call_action=ButtonActions.DISABLE, call_arguments=None, GameObject=None):
         
+        self.temp_enable = True
         self.position = position
         self.width = width
         self.height = height
